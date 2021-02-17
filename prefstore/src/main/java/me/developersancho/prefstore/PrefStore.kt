@@ -10,7 +10,7 @@ import androidx.core.content.edit
  * @property context Required to access SharedPreferences
  * @property prefFileName Parent name of the SharedPreferences space
  */
-open class CacheManager(
+open class PrefStore(
     private val context: Context,
     private var prefFileName: String? = null
 ) {

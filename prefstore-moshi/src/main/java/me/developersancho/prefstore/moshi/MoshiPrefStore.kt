@@ -1,7 +1,7 @@
 package me.developersancho.prefstore.moshi
 
 import android.content.Context
-import me.developersancho.prefstore.CacheManager
+import me.developersancho.prefstore.PrefStore
 
 /**
  * Manages Shared Preferences and provides utility functions
@@ -10,10 +10,10 @@ import me.developersancho.prefstore.CacheManager
  * @property context Required to access SharedPreferences
  * @property prefFileName Parent name of the SharedPreferences space
  */
-class MoshiCacheManager(
+class MoshiPrefStore(
     context: Context,
     prefFileName: String? = null
-) : CacheManager(context, prefFileName) {
+) : PrefStore(context, prefFileName) {
 
     /**
      * Reads json from SharedPreferences and casts it to requested type using Moshi
