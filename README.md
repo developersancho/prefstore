@@ -19,25 +19,25 @@ allprojects {
 * Read and Write key-value
 ````kotlin
 dependencies {
-    implementation("com.github.developersancho.prefstore:prefstore:1.0.0-alpha01")
+    implementation("com.github.developersancho.prefstore:prefstore:1.0.0-alpha02")
 }
 ````
 * Read and Write key-value, Support `Moshi Serialize-Deserialize`
 ````kotlin
 dependencies {
-    implementation("com.github.developersancho.prefstore:prefstore-moshi:1.0.0-alpha01")
+    implementation("com.github.developersancho.prefstore:prefstore-moshi:1.0.0-alpha02")
 }
 ````
 * Read and Write key-value, Support `Gson Serialize-Deserialize`
 ````kotlin
 dependencies {
-    implementation("com.github.developersancho.prefstore:prefstore-gson:1.0.0-alpha01")
+    implementation("com.github.developersancho.prefstore:prefstore-gson:1.0.0-alpha02")
 }
 ````
 * Read and Write key-value, Support `Both of Moshi-Gson Serialize-Deserialize`
 ````kotlin
 dependencies {
-    implementation("com.github.developersancho.prefstore:prefstore-core:1.0.0-alpha01")
+    implementation("com.github.developersancho.prefstore:prefstore-core:1.0.0-alpha02")
 }
 ````
 # 💻 Usage
@@ -50,14 +50,14 @@ data class Student(
 ```
 #### Just read and write value
 ```kotlin
-val pref = CacheManager(context = this, prefFileName = "prefFileName")
+val pref = PrefStore(context = this, prefFileName = "prefFileName")
 pref.write(key = "KEY", "default")
 pref.read(key = "KEY", defaultValue = "")
 ```
 
 #### Just read and write value via moshi
 ```kotlin
-val prefMoshi = MoshiCacheManager(context = this, prefFileName = "prefFileName_moshi")
+val prefMoshi = MoshiPrefStore(context = this, prefFileName = "prefFileName_moshi")
 prefMoshi.write(key = "KEY_MOSHI", "developersancho")
 prefMoshi.read(key = "KEY_MOSHI", defaultValue = "")
 prefMoshi.writeObject(key = "KEY_MOSHI_OBJECT", value = Student(id = 1, name = "moshi"))
@@ -66,7 +66,7 @@ prefMoshi.readObject<Student>(key = "KEY_MOSHI_OBJECT")
 
 #### Just read and write value via gson
 ```kotlin
-val prefGson = GsonCacheManager(context = this, prefFileName = "prefFileName_gson")
+val prefGson = GsonPrefStore(context = this, prefFileName = "prefFileName_gson")
 prefGson.write(key = "KEY_GSON", "gson")
 prefGson.read(key = "KEY_GSON", defaultValue = "")
 prefGson.writeObject(key = "KEY_GSON_OBJECT", value = Student(id = 1, name = "gson"))
