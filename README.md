@@ -102,7 +102,6 @@ Please make sure to update tests as appropriate.
 ## ☑️ TODO
 
 - [ ] Unit Testing
-- [ ] Demo Sample App
 - [ ] Support more libraries
 
 ## 📝 License
