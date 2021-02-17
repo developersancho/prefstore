@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'com.github.dcendents.android-maven'
 }
 
 android {
@@ -12,8 +11,8 @@ android {
         applicationId "me.developersancho.prefstore.sample"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode app_version_code
-        versionName app_version_name
+        versionCode 1
+        versionName "1.0"
         multiDexEnabled = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -45,4 +44,6 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //implementation("com.github.developersancho:prefstore-gson:1.0.0-alpha01")
 }
