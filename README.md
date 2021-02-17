@@ -62,6 +62,7 @@ prefMoshi.write(key = "KEY_MOSHI", "developersancho")
 prefMoshi.read(key = "KEY_MOSHI", defaultValue = "")
 prefMoshi.writeObject(key = "KEY_MOSHI_OBJECT", value = Student(id = 1, name = "moshi"))
 prefMoshi.readObject<Student>(key = "KEY_MOSHI_OBJECT")
+prefMoshi.readListObject<Student>(key = "KEY_MOSHI_LIST_OBJECT")
 ```
 
 #### Just read and write value via gson
@@ -71,6 +72,7 @@ prefGson.write(key = "KEY_GSON", "gson")
 prefGson.read(key = "KEY_GSON", defaultValue = "")
 prefGson.writeObject(key = "KEY_GSON_OBJECT", value = Student(id = 1, name = "gson"))
 prefGson.readObject<Student>(key = "KEY_GSON_OBJECT")
+prefGson.readListObject<Student>(key = "KEY_GSON_LIST_OBJECT")
 ```
 #### Also you can use extension methods
 * <a href="https://github.com/developersancho/prefstore/blob/master/prefstore-moshi/src/main/java/me/developersancho/prefstore/moshi/GetMoshiExt.kt" target="_blank">Moshi Serialize-Deserialize Extension Methods</a>
