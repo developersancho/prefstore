@@ -1,0 +1,6 @@
+include ':prefstore-core'
+include ':prefstore-gson'
+include ':prefstore-moshi'
+include ':prefstore'
+include ':app'
+rootProject.name = "PrefStore"
