@@ -44,8 +44,8 @@ dependencies {
 ## Example
 ```kotlin
 data class Student(
-        val studentId: Int,
-        val studentName: String,
+        val id: Int,
+        val name: String,
 )
 ```
 #### Just read and write value
