@@ -19,25 +19,25 @@ allprojects {
 * Read and Write key-value
 ````kotlin
 dependencies {
-    implementation("com.github.developersancho.prefstore:prefstore:1.0.0-alpha02")
+    implementation("com.github.developersancho.prefstore:prefstore:1.0.0-beta01")
 }
 ````
 * Read and Write key-value, Support `Moshi Serialize-Deserialize`
 ````kotlin
 dependencies {
-    implementation("com.github.developersancho.prefstore:prefstore-moshi:1.0.0-alpha02")
+    implementation("com.github.developersancho.prefstore:prefstore-moshi:1.0.0-beta01")
 }
 ````
 * Read and Write key-value, Support `Gson Serialize-Deserialize`
 ````kotlin
 dependencies {
-    implementation("com.github.developersancho.prefstore:prefstore-gson:1.0.0-alpha02")
+    implementation("com.github.developersancho.prefstore:prefstore-gson:1.0.0-beta01")
 }
 ````
 * Read and Write key-value, Support `Both of Moshi-Gson Serialize-Deserialize`
 ````kotlin
 dependencies {
-    implementation("com.github.developersancho.prefstore:prefstore-core:1.0.0-alpha02")
+    implementation("com.github.developersancho.prefstore:prefstore-core:1.0.0-beta01")
 }
 ````
 # 💻 Usage
