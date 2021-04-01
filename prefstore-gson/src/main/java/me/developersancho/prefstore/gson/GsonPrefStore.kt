@@ -23,7 +23,12 @@ class GsonPrefStore(
      */
     inline fun <reified T> readObject(key: String): T? {
         val readValue = read(key, "")
-        return readValue.convertModel<T>()
+        return if (readValue.isEmpty()) {
+            null
+        } else {
+            readValue.convertModel<T>()
+        }
+
     }
 
     /**
@@ -43,7 +48,11 @@ class GsonPrefStore(
     inline fun <reified T> readListObject(key: String): T? {
         return try {
             val value = read(key, "")
-            value.convertList<T>()
+            if (value.isEmpty()) {
+                null
+            } else {
+                value.convertList<T>()
+            }
         } catch (ex: Exception) {
             null
         }

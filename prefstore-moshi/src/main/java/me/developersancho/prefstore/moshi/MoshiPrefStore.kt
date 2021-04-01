@@ -23,7 +23,12 @@ class MoshiPrefStore(
      */
     inline fun <reified T> readObject(key: String): T? {
         val readValue = read(key, "")
-        return readValue.deserialize()
+        return if (readValue.isEmpty()) {
+            null
+        } else {
+            readValue.deserialize()
+        }
+
     }
 
     /**
@@ -43,7 +48,11 @@ class MoshiPrefStore(
     inline fun <reified T> readListObject(key: String): List<T>? {
         return try {
             val value = read(key, "")
-            value.deserializeList()
+            if (value.isEmpty()) {
+                null
+            } else {
+                value.deserializeList()
+            }
         } catch (ex: Exception) {
             null
         }

@@ -10,14 +10,22 @@ val getMoshi: Moshi = Moshi.Builder()
     .build()
 
 inline fun <reified T> String.deserialize(): T? {
-    val jsonAdapter = getMoshi.adapter(T::class.java)
-    return jsonAdapter.fromJson(this)
+    return try {
+        val jsonAdapter = getMoshi.adapter(T::class.java)
+        jsonAdapter.fromJson(this)
+    } catch (ex: Exception) {
+        null
+    }
 }
 
 inline fun <reified T> String.deserializeList(): List<T>? {
-    val type = Types.newParameterizedType(MutableList::class.java, T::class.java)
-    val jsonAdapter: JsonAdapter<List<T>> = getMoshi.adapter(type)
-    return jsonAdapter.fromJson(this)
+    return try {
+        val type = Types.newParameterizedType(MutableList::class.java, T::class.java)
+        val jsonAdapter: JsonAdapter<List<T>> = getMoshi.adapter(type)
+        jsonAdapter.fromJson(this)
+    } catch (ex: Exception) {
+        null
+    }
 }
 
 @Suppress("CheckResult")
@@ -33,8 +41,12 @@ fun String.canConvertTo(type: Class<*>): Boolean {
 }
 
 inline fun <reified T> T.serialize(): String {
-    val jsonAdapter = getMoshi.adapter(T::class.java)
-    return jsonAdapter.toJson(this)
+    return try {
+        val jsonAdapter = getMoshi.adapter(T::class.java)
+        jsonAdapter.toJson(this)
+    } catch (ex: Exception) {
+        ""
+    }
 }
 
 /* EXAMPLE
