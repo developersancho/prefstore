@@ -10,12 +10,14 @@ import androidx.core.content.edit
  * @property context Required to access SharedPreferences
  * @property prefFileName Parent name of the SharedPreferences space
  */
+@Suppress("UNCHECKED_CAST")
 open class PrefStore(
     private val context: Context,
     private var prefFileName: String? = null
 ) {
 
-    protected val prefs: SharedPreferences by lazy { context.getPrefs(prefFileName) }
+    protected val prefs: SharedPreferences =
+        context.getPrefs(prefFileName ?: context.getDefaultSharedPrefName())
 
     /**
      * Reads a single String, Int, Boolean or Long value from SharedPreferences
@@ -26,7 +28,7 @@ open class PrefStore(
      */
     fun <T> read(key: String, defaultValue: T): T {
         return when (defaultValue) {
-            is String -> prefs.getString(key, defaultValue as String) as? T ?: defaultValue
+            is String -> prefs.getString(key, defaultValue as String) as T ?: defaultValue
             is Int -> prefs.getInt(key, defaultValue as Int) as T ?: defaultValue
             is Boolean -> prefs.getBoolean(key, defaultValue as Boolean) as T ?: defaultValue
             is Long -> prefs.getLong(key, defaultValue as Long) as T ?: defaultValue
